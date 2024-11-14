@@ -3,6 +3,7 @@ import { LinkComponent } from './LinkComponent'
 import { SITE_EMOJI } from '@/utils/site'
 import { Connect } from './Connect'
 import { NotificationsDrawer } from './NotificationsDrawer'
+import { ThemeToggle } from './ThemeToggle'
 
 export function Header() {
   return (
@@ -12,8 +13,9 @@ export function Header() {
       </LinkComponent>
 
       <div className='flex gap-2'>
-        <Connect />
+        <ThemeToggle />
         <NotificationsDrawer />
+        <Connect />
       </div>
     </header>
   )

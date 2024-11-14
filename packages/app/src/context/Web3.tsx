@@ -10,39 +10,40 @@ import { ETH_CHAINS } from '@/utils/network'
 import { mainnet } from '@reown/appkit/networks'
 
 interface Props extends PropsWithChildren {
-  cookies: string | null
+	cookies: string | null
 }
 
 const queryClient = new QueryClient()
 
 const metadata = {
-  name: SITE_NAME,
-  description: SITE_INFO,
-  url: SITE_URL,
-  icons: ['https://avatars.githubusercontent.com/u/25974464'],
+	name: SITE_NAME,
+	description: SITE_INFO,
+	url: SITE_URL,
+	icons: ['https://avatars.githubusercontent.com/u/25974464'],
 }
 
 createAppKit({
-  adapters: [WALLETCONNECT_ADAPTER],
-  projectId: WALLETCONNECT_PROJECT_ID,
-  networks: ETH_CHAINS,
-  defaultNetwork: mainnet,
-  metadata: metadata,
-  features: {
-    analytics: true, // Optional - defaults to your Cloud configuration
-    email: true,
-    onramp: true,
-  },
+	adapters: [WALLETCONNECT_ADAPTER],
+	projectId: WALLETCONNECT_PROJECT_ID,
+	networks: ETH_CHAINS,
+	defaultNetwork: mainnet,
+	metadata: metadata,
+	features: {
+		analytics: true, // Optional - defaults to your Cloud configuration
+		email: true,
+		onramp: true,
+		swaps: true, // enable swaps
+	},
 })
 
 export function Web3Provider(props: Props) {
-  const initialState = cookieToInitialState(WALLETCONNECT_ADAPTER.wagmiConfig as Config, props.cookies)
+	const initialState = cookieToInitialState(WALLETCONNECT_ADAPTER.wagmiConfig as Config, props.cookies)
 
-  return (
-    <>
-      <WagmiProvider config={WALLETCONNECT_ADAPTER.wagmiConfig as Config} initialState={initialState}>
-        <QueryClientProvider client={queryClient}>{props.children}</QueryClientProvider>
-      </WagmiProvider>
-    </>
-  )
+	return (
+		<>
+			<WagmiProvider config={WALLETCONNECT_ADAPTER.wagmiConfig as Config} initialState={initialState}>
+				<QueryClientProvider client={queryClient}>{props.children}</QueryClientProvider>
+			</WagmiProvider>
+		</>
+	)
 }

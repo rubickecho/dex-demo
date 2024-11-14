@@ -1,14 +1,16 @@
 {
-  "name": "nexth",
+  "name": "dex-demo",
   "version": "0.2.0",
   "license": "MIT",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/app",
+    "packages/foundry"
   ],
   "scripts": {
     "dev": "yarn workspaces -pt run dev",
     "build": "yarn workspaces -pt run build",
-    "test": "yarn workspaces -pt run test"
+    "test": "yarn workspaces -pt run test",
+    "prettier:app": "yarn workspace app prettier"
   }
 }
