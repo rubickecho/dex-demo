@@ -1,8 +1,8 @@
 import {
-  createReadContract,
-  createWriteContract,
-  createSimulateContract,
-  createWatchContractEvent,
+	createReadContract,
+	createWriteContract,
+	createSimulateContract,
+	createWatchContractEvent,
 } from 'wagmi/codegen'
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -10,13 +10,13 @@ import {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const erc165Abi = [
-  {
-    type: 'function',
-    inputs: [{ name: 'interfaceId', internalType: 'bytes4', type: 'bytes4' }],
-    name: 'supportsInterface',
-    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
-    stateMutability: 'view',
-  },
+	{
+		type: 'function',
+		inputs: [{ name: 'interfaceId', internalType: 'bytes4', type: 'bytes4' }],
+		name: 'supportsInterface',
+		outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
+		stateMutability: 'view',
+	},
 ] as const
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -24,192 +24,192 @@ export const erc165Abi = [
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const erc721Abi = [
-  {
-    type: 'error',
-    inputs: [
-      { name: 'sender', internalType: 'address', type: 'address' },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
-      { name: 'owner', internalType: 'address', type: 'address' },
-    ],
-    name: 'ERC721IncorrectOwner',
-  },
-  {
-    type: 'error',
-    inputs: [
-      { name: 'operator', internalType: 'address', type: 'address' },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
-    ],
-    name: 'ERC721InsufficientApproval',
-  },
-  {
-    type: 'error',
-    inputs: [{ name: 'approver', internalType: 'address', type: 'address' }],
-    name: 'ERC721InvalidApprover',
-  },
-  {
-    type: 'error',
-    inputs: [{ name: 'operator', internalType: 'address', type: 'address' }],
-    name: 'ERC721InvalidOperator',
-  },
-  { type: 'error', inputs: [{ name: 'owner', internalType: 'address', type: 'address' }], name: 'ERC721InvalidOwner' },
-  {
-    type: 'error',
-    inputs: [{ name: 'receiver', internalType: 'address', type: 'address' }],
-    name: 'ERC721InvalidReceiver',
-  },
-  {
-    type: 'error',
-    inputs: [{ name: 'sender', internalType: 'address', type: 'address' }],
-    name: 'ERC721InvalidSender',
-  },
-  {
-    type: 'error',
-    inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
-    name: 'ERC721NonexistentToken',
-  },
-  {
-    type: 'event',
-    anonymous: false,
-    inputs: [
-      { name: 'owner', internalType: 'address', type: 'address', indexed: true },
-      { name: 'approved', internalType: 'address', type: 'address', indexed: true },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256', indexed: true },
-    ],
-    name: 'Approval',
-  },
-  {
-    type: 'event',
-    anonymous: false,
-    inputs: [
-      { name: 'owner', internalType: 'address', type: 'address', indexed: true },
-      { name: 'operator', internalType: 'address', type: 'address', indexed: true },
-      { name: 'approved', internalType: 'bool', type: 'bool', indexed: false },
-    ],
-    name: 'ApprovalForAll',
-  },
-  {
-    type: 'event',
-    anonymous: false,
-    inputs: [
-      { name: 'from', internalType: 'address', type: 'address', indexed: true },
-      { name: 'to', internalType: 'address', type: 'address', indexed: true },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256', indexed: true },
-    ],
-    name: 'Transfer',
-  },
-  {
-    type: 'function',
-    inputs: [
-      { name: 'to', internalType: 'address', type: 'address' },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
-    ],
-    name: 'approve',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
-  {
-    type: 'function',
-    inputs: [{ name: 'owner', internalType: 'address', type: 'address' }],
-    name: 'balanceOf',
-    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
-    name: 'getApproved',
-    outputs: [{ name: '', internalType: 'address', type: 'address' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [
-      { name: 'owner', internalType: 'address', type: 'address' },
-      { name: 'operator', internalType: 'address', type: 'address' },
-    ],
-    name: 'isApprovedForAll',
-    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [],
-    name: 'name',
-    outputs: [{ name: '', internalType: 'string', type: 'string' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
-    name: 'ownerOf',
-    outputs: [{ name: '', internalType: 'address', type: 'address' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [
-      { name: 'from', internalType: 'address', type: 'address' },
-      { name: 'to', internalType: 'address', type: 'address' },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
-    ],
-    name: 'safeTransferFrom',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
-  {
-    type: 'function',
-    inputs: [
-      { name: 'from', internalType: 'address', type: 'address' },
-      { name: 'to', internalType: 'address', type: 'address' },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
-      { name: 'data', internalType: 'bytes', type: 'bytes' },
-    ],
-    name: 'safeTransferFrom',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
-  {
-    type: 'function',
-    inputs: [
-      { name: 'operator', internalType: 'address', type: 'address' },
-      { name: 'approved', internalType: 'bool', type: 'bool' },
-    ],
-    name: 'setApprovalForAll',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
-  {
-    type: 'function',
-    inputs: [{ name: 'interfaceId', internalType: 'bytes4', type: 'bytes4' }],
-    name: 'supportsInterface',
-    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [],
-    name: 'symbol',
-    outputs: [{ name: '', internalType: 'string', type: 'string' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
-    name: 'tokenURI',
-    outputs: [{ name: '', internalType: 'string', type: 'string' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [
-      { name: 'from', internalType: 'address', type: 'address' },
-      { name: 'to', internalType: 'address', type: 'address' },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
-    ],
-    name: 'transferFrom',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
+	{
+		type: 'error',
+		inputs: [
+			{ name: 'sender', internalType: 'address', type: 'address' },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+			{ name: 'owner', internalType: 'address', type: 'address' },
+		],
+		name: 'ERC721IncorrectOwner',
+	},
+	{
+		type: 'error',
+		inputs: [
+			{ name: 'operator', internalType: 'address', type: 'address' },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+		],
+		name: 'ERC721InsufficientApproval',
+	},
+	{
+		type: 'error',
+		inputs: [{ name: 'approver', internalType: 'address', type: 'address' }],
+		name: 'ERC721InvalidApprover',
+	},
+	{
+		type: 'error',
+		inputs: [{ name: 'operator', internalType: 'address', type: 'address' }],
+		name: 'ERC721InvalidOperator',
+	},
+	{ type: 'error', inputs: [{ name: 'owner', internalType: 'address', type: 'address' }], name: 'ERC721InvalidOwner' },
+	{
+		type: 'error',
+		inputs: [{ name: 'receiver', internalType: 'address', type: 'address' }],
+		name: 'ERC721InvalidReceiver',
+	},
+	{
+		type: 'error',
+		inputs: [{ name: 'sender', internalType: 'address', type: 'address' }],
+		name: 'ERC721InvalidSender',
+	},
+	{
+		type: 'error',
+		inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
+		name: 'ERC721NonexistentToken',
+	},
+	{
+		type: 'event',
+		anonymous: false,
+		inputs: [
+			{ name: 'owner', internalType: 'address', type: 'address', indexed: true },
+			{ name: 'approved', internalType: 'address', type: 'address', indexed: true },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256', indexed: true },
+		],
+		name: 'Approval',
+	},
+	{
+		type: 'event',
+		anonymous: false,
+		inputs: [
+			{ name: 'owner', internalType: 'address', type: 'address', indexed: true },
+			{ name: 'operator', internalType: 'address', type: 'address', indexed: true },
+			{ name: 'approved', internalType: 'bool', type: 'bool', indexed: false },
+		],
+		name: 'ApprovalForAll',
+	},
+	{
+		type: 'event',
+		anonymous: false,
+		inputs: [
+			{ name: 'from', internalType: 'address', type: 'address', indexed: true },
+			{ name: 'to', internalType: 'address', type: 'address', indexed: true },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256', indexed: true },
+		],
+		name: 'Transfer',
+	},
+	{
+		type: 'function',
+		inputs: [
+			{ name: 'to', internalType: 'address', type: 'address' },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+		],
+		name: 'approve',
+		outputs: [],
+		stateMutability: 'nonpayable',
+	},
+	{
+		type: 'function',
+		inputs: [{ name: 'owner', internalType: 'address', type: 'address' }],
+		name: 'balanceOf',
+		outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
+		name: 'getApproved',
+		outputs: [{ name: '', internalType: 'address', type: 'address' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [
+			{ name: 'owner', internalType: 'address', type: 'address' },
+			{ name: 'operator', internalType: 'address', type: 'address' },
+		],
+		name: 'isApprovedForAll',
+		outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [],
+		name: 'name',
+		outputs: [{ name: '', internalType: 'string', type: 'string' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
+		name: 'ownerOf',
+		outputs: [{ name: '', internalType: 'address', type: 'address' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [
+			{ name: 'from', internalType: 'address', type: 'address' },
+			{ name: 'to', internalType: 'address', type: 'address' },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+		],
+		name: 'safeTransferFrom',
+		outputs: [],
+		stateMutability: 'nonpayable',
+	},
+	{
+		type: 'function',
+		inputs: [
+			{ name: 'from', internalType: 'address', type: 'address' },
+			{ name: 'to', internalType: 'address', type: 'address' },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+			{ name: 'data', internalType: 'bytes', type: 'bytes' },
+		],
+		name: 'safeTransferFrom',
+		outputs: [],
+		stateMutability: 'nonpayable',
+	},
+	{
+		type: 'function',
+		inputs: [
+			{ name: 'operator', internalType: 'address', type: 'address' },
+			{ name: 'approved', internalType: 'bool', type: 'bool' },
+		],
+		name: 'setApprovalForAll',
+		outputs: [],
+		stateMutability: 'nonpayable',
+	},
+	{
+		type: 'function',
+		inputs: [{ name: 'interfaceId', internalType: 'bytes4', type: 'bytes4' }],
+		name: 'supportsInterface',
+		outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [],
+		name: 'symbol',
+		outputs: [{ name: '', internalType: 'string', type: 'string' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
+		name: 'tokenURI',
+		outputs: [{ name: '', internalType: 'string', type: 'string' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [
+			{ name: 'from', internalType: 'address', type: 'address' },
+			{ name: 'to', internalType: 'address', type: 'address' },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+		],
+		name: 'transferFrom',
+		outputs: [],
+		stateMutability: 'nonpayable',
+	},
 ] as const
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -217,52 +217,52 @@ export const erc721Abi = [
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const ierc1155ErrorsAbi = [
-  {
-    type: 'error',
-    inputs: [
-      { name: 'sender', internalType: 'address', type: 'address' },
-      { name: 'balance', internalType: 'uint256', type: 'uint256' },
-      { name: 'needed', internalType: 'uint256', type: 'uint256' },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
-    ],
-    name: 'ERC1155InsufficientBalance',
-  },
-  {
-    type: 'error',
-    inputs: [{ name: 'approver', internalType: 'address', type: 'address' }],
-    name: 'ERC1155InvalidApprover',
-  },
-  {
-    type: 'error',
-    inputs: [
-      { name: 'idsLength', internalType: 'uint256', type: 'uint256' },
-      { name: 'valuesLength', internalType: 'uint256', type: 'uint256' },
-    ],
-    name: 'ERC1155InvalidArrayLength',
-  },
-  {
-    type: 'error',
-    inputs: [{ name: 'operator', internalType: 'address', type: 'address' }],
-    name: 'ERC1155InvalidOperator',
-  },
-  {
-    type: 'error',
-    inputs: [{ name: 'receiver', internalType: 'address', type: 'address' }],
-    name: 'ERC1155InvalidReceiver',
-  },
-  {
-    type: 'error',
-    inputs: [{ name: 'sender', internalType: 'address', type: 'address' }],
-    name: 'ERC1155InvalidSender',
-  },
-  {
-    type: 'error',
-    inputs: [
-      { name: 'operator', internalType: 'address', type: 'address' },
-      { name: 'owner', internalType: 'address', type: 'address' },
-    ],
-    name: 'ERC1155MissingApprovalForAll',
-  },
+	{
+		type: 'error',
+		inputs: [
+			{ name: 'sender', internalType: 'address', type: 'address' },
+			{ name: 'balance', internalType: 'uint256', type: 'uint256' },
+			{ name: 'needed', internalType: 'uint256', type: 'uint256' },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+		],
+		name: 'ERC1155InsufficientBalance',
+	},
+	{
+		type: 'error',
+		inputs: [{ name: 'approver', internalType: 'address', type: 'address' }],
+		name: 'ERC1155InvalidApprover',
+	},
+	{
+		type: 'error',
+		inputs: [
+			{ name: 'idsLength', internalType: 'uint256', type: 'uint256' },
+			{ name: 'valuesLength', internalType: 'uint256', type: 'uint256' },
+		],
+		name: 'ERC1155InvalidArrayLength',
+	},
+	{
+		type: 'error',
+		inputs: [{ name: 'operator', internalType: 'address', type: 'address' }],
+		name: 'ERC1155InvalidOperator',
+	},
+	{
+		type: 'error',
+		inputs: [{ name: 'receiver', internalType: 'address', type: 'address' }],
+		name: 'ERC1155InvalidReceiver',
+	},
+	{
+		type: 'error',
+		inputs: [{ name: 'sender', internalType: 'address', type: 'address' }],
+		name: 'ERC1155InvalidSender',
+	},
+	{
+		type: 'error',
+		inputs: [
+			{ name: 'operator', internalType: 'address', type: 'address' },
+			{ name: 'owner', internalType: 'address', type: 'address' },
+		],
+		name: 'ERC1155MissingApprovalForAll',
+	},
 ] as const
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -270,13 +270,13 @@ export const ierc1155ErrorsAbi = [
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const ierc165Abi = [
-  {
-    type: 'function',
-    inputs: [{ name: 'interfaceId', internalType: 'bytes4', type: 'bytes4' }],
-    name: 'supportsInterface',
-    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
-    stateMutability: 'view',
-  },
+	{
+		type: 'function',
+		inputs: [{ name: 'interfaceId', internalType: 'bytes4', type: 'bytes4' }],
+		name: 'supportsInterface',
+		outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
+		stateMutability: 'view',
+	},
 ] as const
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -284,40 +284,40 @@ export const ierc165Abi = [
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const ierc20ErrorsAbi = [
-  {
-    type: 'error',
-    inputs: [
-      { name: 'spender', internalType: 'address', type: 'address' },
-      { name: 'allowance', internalType: 'uint256', type: 'uint256' },
-      { name: 'needed', internalType: 'uint256', type: 'uint256' },
-    ],
-    name: 'ERC20InsufficientAllowance',
-  },
-  {
-    type: 'error',
-    inputs: [
-      { name: 'sender', internalType: 'address', type: 'address' },
-      { name: 'balance', internalType: 'uint256', type: 'uint256' },
-      { name: 'needed', internalType: 'uint256', type: 'uint256' },
-    ],
-    name: 'ERC20InsufficientBalance',
-  },
-  {
-    type: 'error',
-    inputs: [{ name: 'approver', internalType: 'address', type: 'address' }],
-    name: 'ERC20InvalidApprover',
-  },
-  {
-    type: 'error',
-    inputs: [{ name: 'receiver', internalType: 'address', type: 'address' }],
-    name: 'ERC20InvalidReceiver',
-  },
-  { type: 'error', inputs: [{ name: 'sender', internalType: 'address', type: 'address' }], name: 'ERC20InvalidSender' },
-  {
-    type: 'error',
-    inputs: [{ name: 'spender', internalType: 'address', type: 'address' }],
-    name: 'ERC20InvalidSpender',
-  },
+	{
+		type: 'error',
+		inputs: [
+			{ name: 'spender', internalType: 'address', type: 'address' },
+			{ name: 'allowance', internalType: 'uint256', type: 'uint256' },
+			{ name: 'needed', internalType: 'uint256', type: 'uint256' },
+		],
+		name: 'ERC20InsufficientAllowance',
+	},
+	{
+		type: 'error',
+		inputs: [
+			{ name: 'sender', internalType: 'address', type: 'address' },
+			{ name: 'balance', internalType: 'uint256', type: 'uint256' },
+			{ name: 'needed', internalType: 'uint256', type: 'uint256' },
+		],
+		name: 'ERC20InsufficientBalance',
+	},
+	{
+		type: 'error',
+		inputs: [{ name: 'approver', internalType: 'address', type: 'address' }],
+		name: 'ERC20InvalidApprover',
+	},
+	{
+		type: 'error',
+		inputs: [{ name: 'receiver', internalType: 'address', type: 'address' }],
+		name: 'ERC20InvalidReceiver',
+	},
+	{ type: 'error', inputs: [{ name: 'sender', internalType: 'address', type: 'address' }], name: 'ERC20InvalidSender' },
+	{
+		type: 'error',
+		inputs: [{ name: 'spender', internalType: 'address', type: 'address' }],
+		name: 'ERC20InvalidSpender',
+	},
 ] as const
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -325,128 +325,128 @@ export const ierc20ErrorsAbi = [
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const ierc721Abi = [
-  {
-    type: 'event',
-    anonymous: false,
-    inputs: [
-      { name: 'owner', internalType: 'address', type: 'address', indexed: true },
-      { name: 'approved', internalType: 'address', type: 'address', indexed: true },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256', indexed: true },
-    ],
-    name: 'Approval',
-  },
-  {
-    type: 'event',
-    anonymous: false,
-    inputs: [
-      { name: 'owner', internalType: 'address', type: 'address', indexed: true },
-      { name: 'operator', internalType: 'address', type: 'address', indexed: true },
-      { name: 'approved', internalType: 'bool', type: 'bool', indexed: false },
-    ],
-    name: 'ApprovalForAll',
-  },
-  {
-    type: 'event',
-    anonymous: false,
-    inputs: [
-      { name: 'from', internalType: 'address', type: 'address', indexed: true },
-      { name: 'to', internalType: 'address', type: 'address', indexed: true },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256', indexed: true },
-    ],
-    name: 'Transfer',
-  },
-  {
-    type: 'function',
-    inputs: [
-      { name: 'to', internalType: 'address', type: 'address' },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
-    ],
-    name: 'approve',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
-  {
-    type: 'function',
-    inputs: [{ name: 'owner', internalType: 'address', type: 'address' }],
-    name: 'balanceOf',
-    outputs: [{ name: 'balance', internalType: 'uint256', type: 'uint256' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
-    name: 'getApproved',
-    outputs: [{ name: 'operator', internalType: 'address', type: 'address' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [
-      { name: 'owner', internalType: 'address', type: 'address' },
-      { name: 'operator', internalType: 'address', type: 'address' },
-    ],
-    name: 'isApprovedForAll',
-    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
-    name: 'ownerOf',
-    outputs: [{ name: 'owner', internalType: 'address', type: 'address' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [
-      { name: 'from', internalType: 'address', type: 'address' },
-      { name: 'to', internalType: 'address', type: 'address' },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
-    ],
-    name: 'safeTransferFrom',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
-  {
-    type: 'function',
-    inputs: [
-      { name: 'from', internalType: 'address', type: 'address' },
-      { name: 'to', internalType: 'address', type: 'address' },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
-      { name: 'data', internalType: 'bytes', type: 'bytes' },
-    ],
-    name: 'safeTransferFrom',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
-  {
-    type: 'function',
-    inputs: [
-      { name: 'operator', internalType: 'address', type: 'address' },
-      { name: 'approved', internalType: 'bool', type: 'bool' },
-    ],
-    name: 'setApprovalForAll',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
-  {
-    type: 'function',
-    inputs: [{ name: 'interfaceId', internalType: 'bytes4', type: 'bytes4' }],
-    name: 'supportsInterface',
-    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [
-      { name: 'from', internalType: 'address', type: 'address' },
-      { name: 'to', internalType: 'address', type: 'address' },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
-    ],
-    name: 'transferFrom',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
+	{
+		type: 'event',
+		anonymous: false,
+		inputs: [
+			{ name: 'owner', internalType: 'address', type: 'address', indexed: true },
+			{ name: 'approved', internalType: 'address', type: 'address', indexed: true },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256', indexed: true },
+		],
+		name: 'Approval',
+	},
+	{
+		type: 'event',
+		anonymous: false,
+		inputs: [
+			{ name: 'owner', internalType: 'address', type: 'address', indexed: true },
+			{ name: 'operator', internalType: 'address', type: 'address', indexed: true },
+			{ name: 'approved', internalType: 'bool', type: 'bool', indexed: false },
+		],
+		name: 'ApprovalForAll',
+	},
+	{
+		type: 'event',
+		anonymous: false,
+		inputs: [
+			{ name: 'from', internalType: 'address', type: 'address', indexed: true },
+			{ name: 'to', internalType: 'address', type: 'address', indexed: true },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256', indexed: true },
+		],
+		name: 'Transfer',
+	},
+	{
+		type: 'function',
+		inputs: [
+			{ name: 'to', internalType: 'address', type: 'address' },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+		],
+		name: 'approve',
+		outputs: [],
+		stateMutability: 'nonpayable',
+	},
+	{
+		type: 'function',
+		inputs: [{ name: 'owner', internalType: 'address', type: 'address' }],
+		name: 'balanceOf',
+		outputs: [{ name: 'balance', internalType: 'uint256', type: 'uint256' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
+		name: 'getApproved',
+		outputs: [{ name: 'operator', internalType: 'address', type: 'address' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [
+			{ name: 'owner', internalType: 'address', type: 'address' },
+			{ name: 'operator', internalType: 'address', type: 'address' },
+		],
+		name: 'isApprovedForAll',
+		outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
+		name: 'ownerOf',
+		outputs: [{ name: 'owner', internalType: 'address', type: 'address' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [
+			{ name: 'from', internalType: 'address', type: 'address' },
+			{ name: 'to', internalType: 'address', type: 'address' },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+		],
+		name: 'safeTransferFrom',
+		outputs: [],
+		stateMutability: 'nonpayable',
+	},
+	{
+		type: 'function',
+		inputs: [
+			{ name: 'from', internalType: 'address', type: 'address' },
+			{ name: 'to', internalType: 'address', type: 'address' },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+			{ name: 'data', internalType: 'bytes', type: 'bytes' },
+		],
+		name: 'safeTransferFrom',
+		outputs: [],
+		stateMutability: 'nonpayable',
+	},
+	{
+		type: 'function',
+		inputs: [
+			{ name: 'operator', internalType: 'address', type: 'address' },
+			{ name: 'approved', internalType: 'bool', type: 'bool' },
+		],
+		name: 'setApprovalForAll',
+		outputs: [],
+		stateMutability: 'nonpayable',
+	},
+	{
+		type: 'function',
+		inputs: [{ name: 'interfaceId', internalType: 'bytes4', type: 'bytes4' }],
+		name: 'supportsInterface',
+		outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [
+			{ name: 'from', internalType: 'address', type: 'address' },
+			{ name: 'to', internalType: 'address', type: 'address' },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+		],
+		name: 'transferFrom',
+		outputs: [],
+		stateMutability: 'nonpayable',
+	},
 ] as const
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -454,49 +454,49 @@ export const ierc721Abi = [
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const ierc721ErrorsAbi = [
-  {
-    type: 'error',
-    inputs: [
-      { name: 'sender', internalType: 'address', type: 'address' },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
-      { name: 'owner', internalType: 'address', type: 'address' },
-    ],
-    name: 'ERC721IncorrectOwner',
-  },
-  {
-    type: 'error',
-    inputs: [
-      { name: 'operator', internalType: 'address', type: 'address' },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
-    ],
-    name: 'ERC721InsufficientApproval',
-  },
-  {
-    type: 'error',
-    inputs: [{ name: 'approver', internalType: 'address', type: 'address' }],
-    name: 'ERC721InvalidApprover',
-  },
-  {
-    type: 'error',
-    inputs: [{ name: 'operator', internalType: 'address', type: 'address' }],
-    name: 'ERC721InvalidOperator',
-  },
-  { type: 'error', inputs: [{ name: 'owner', internalType: 'address', type: 'address' }], name: 'ERC721InvalidOwner' },
-  {
-    type: 'error',
-    inputs: [{ name: 'receiver', internalType: 'address', type: 'address' }],
-    name: 'ERC721InvalidReceiver',
-  },
-  {
-    type: 'error',
-    inputs: [{ name: 'sender', internalType: 'address', type: 'address' }],
-    name: 'ERC721InvalidSender',
-  },
-  {
-    type: 'error',
-    inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
-    name: 'ERC721NonexistentToken',
-  },
+	{
+		type: 'error',
+		inputs: [
+			{ name: 'sender', internalType: 'address', type: 'address' },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+			{ name: 'owner', internalType: 'address', type: 'address' },
+		],
+		name: 'ERC721IncorrectOwner',
+	},
+	{
+		type: 'error',
+		inputs: [
+			{ name: 'operator', internalType: 'address', type: 'address' },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+		],
+		name: 'ERC721InsufficientApproval',
+	},
+	{
+		type: 'error',
+		inputs: [{ name: 'approver', internalType: 'address', type: 'address' }],
+		name: 'ERC721InvalidApprover',
+	},
+	{
+		type: 'error',
+		inputs: [{ name: 'operator', internalType: 'address', type: 'address' }],
+		name: 'ERC721InvalidOperator',
+	},
+	{ type: 'error', inputs: [{ name: 'owner', internalType: 'address', type: 'address' }], name: 'ERC721InvalidOwner' },
+	{
+		type: 'error',
+		inputs: [{ name: 'receiver', internalType: 'address', type: 'address' }],
+		name: 'ERC721InvalidReceiver',
+	},
+	{
+		type: 'error',
+		inputs: [{ name: 'sender', internalType: 'address', type: 'address' }],
+		name: 'ERC721InvalidSender',
+	},
+	{
+		type: 'error',
+		inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
+		name: 'ERC721NonexistentToken',
+	},
 ] as const
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -504,149 +504,149 @@ export const ierc721ErrorsAbi = [
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const ierc721MetadataAbi = [
-  {
-    type: 'event',
-    anonymous: false,
-    inputs: [
-      { name: 'owner', internalType: 'address', type: 'address', indexed: true },
-      { name: 'approved', internalType: 'address', type: 'address', indexed: true },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256', indexed: true },
-    ],
-    name: 'Approval',
-  },
-  {
-    type: 'event',
-    anonymous: false,
-    inputs: [
-      { name: 'owner', internalType: 'address', type: 'address', indexed: true },
-      { name: 'operator', internalType: 'address', type: 'address', indexed: true },
-      { name: 'approved', internalType: 'bool', type: 'bool', indexed: false },
-    ],
-    name: 'ApprovalForAll',
-  },
-  {
-    type: 'event',
-    anonymous: false,
-    inputs: [
-      { name: 'from', internalType: 'address', type: 'address', indexed: true },
-      { name: 'to', internalType: 'address', type: 'address', indexed: true },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256', indexed: true },
-    ],
-    name: 'Transfer',
-  },
-  {
-    type: 'function',
-    inputs: [
-      { name: 'to', internalType: 'address', type: 'address' },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
-    ],
-    name: 'approve',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
-  {
-    type: 'function',
-    inputs: [{ name: 'owner', internalType: 'address', type: 'address' }],
-    name: 'balanceOf',
-    outputs: [{ name: 'balance', internalType: 'uint256', type: 'uint256' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
-    name: 'getApproved',
-    outputs: [{ name: 'operator', internalType: 'address', type: 'address' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [
-      { name: 'owner', internalType: 'address', type: 'address' },
-      { name: 'operator', internalType: 'address', type: 'address' },
-    ],
-    name: 'isApprovedForAll',
-    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [],
-    name: 'name',
-    outputs: [{ name: '', internalType: 'string', type: 'string' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
-    name: 'ownerOf',
-    outputs: [{ name: 'owner', internalType: 'address', type: 'address' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [
-      { name: 'from', internalType: 'address', type: 'address' },
-      { name: 'to', internalType: 'address', type: 'address' },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
-    ],
-    name: 'safeTransferFrom',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
-  {
-    type: 'function',
-    inputs: [
-      { name: 'from', internalType: 'address', type: 'address' },
-      { name: 'to', internalType: 'address', type: 'address' },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
-      { name: 'data', internalType: 'bytes', type: 'bytes' },
-    ],
-    name: 'safeTransferFrom',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
-  {
-    type: 'function',
-    inputs: [
-      { name: 'operator', internalType: 'address', type: 'address' },
-      { name: 'approved', internalType: 'bool', type: 'bool' },
-    ],
-    name: 'setApprovalForAll',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
-  {
-    type: 'function',
-    inputs: [{ name: 'interfaceId', internalType: 'bytes4', type: 'bytes4' }],
-    name: 'supportsInterface',
-    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [],
-    name: 'symbol',
-    outputs: [{ name: '', internalType: 'string', type: 'string' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
-    name: 'tokenURI',
-    outputs: [{ name: '', internalType: 'string', type: 'string' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [
-      { name: 'from', internalType: 'address', type: 'address' },
-      { name: 'to', internalType: 'address', type: 'address' },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
-    ],
-    name: 'transferFrom',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
+	{
+		type: 'event',
+		anonymous: false,
+		inputs: [
+			{ name: 'owner', internalType: 'address', type: 'address', indexed: true },
+			{ name: 'approved', internalType: 'address', type: 'address', indexed: true },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256', indexed: true },
+		],
+		name: 'Approval',
+	},
+	{
+		type: 'event',
+		anonymous: false,
+		inputs: [
+			{ name: 'owner', internalType: 'address', type: 'address', indexed: true },
+			{ name: 'operator', internalType: 'address', type: 'address', indexed: true },
+			{ name: 'approved', internalType: 'bool', type: 'bool', indexed: false },
+		],
+		name: 'ApprovalForAll',
+	},
+	{
+		type: 'event',
+		anonymous: false,
+		inputs: [
+			{ name: 'from', internalType: 'address', type: 'address', indexed: true },
+			{ name: 'to', internalType: 'address', type: 'address', indexed: true },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256', indexed: true },
+		],
+		name: 'Transfer',
+	},
+	{
+		type: 'function',
+		inputs: [
+			{ name: 'to', internalType: 'address', type: 'address' },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+		],
+		name: 'approve',
+		outputs: [],
+		stateMutability: 'nonpayable',
+	},
+	{
+		type: 'function',
+		inputs: [{ name: 'owner', internalType: 'address', type: 'address' }],
+		name: 'balanceOf',
+		outputs: [{ name: 'balance', internalType: 'uint256', type: 'uint256' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
+		name: 'getApproved',
+		outputs: [{ name: 'operator', internalType: 'address', type: 'address' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [
+			{ name: 'owner', internalType: 'address', type: 'address' },
+			{ name: 'operator', internalType: 'address', type: 'address' },
+		],
+		name: 'isApprovedForAll',
+		outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [],
+		name: 'name',
+		outputs: [{ name: '', internalType: 'string', type: 'string' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
+		name: 'ownerOf',
+		outputs: [{ name: 'owner', internalType: 'address', type: 'address' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [
+			{ name: 'from', internalType: 'address', type: 'address' },
+			{ name: 'to', internalType: 'address', type: 'address' },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+		],
+		name: 'safeTransferFrom',
+		outputs: [],
+		stateMutability: 'nonpayable',
+	},
+	{
+		type: 'function',
+		inputs: [
+			{ name: 'from', internalType: 'address', type: 'address' },
+			{ name: 'to', internalType: 'address', type: 'address' },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+			{ name: 'data', internalType: 'bytes', type: 'bytes' },
+		],
+		name: 'safeTransferFrom',
+		outputs: [],
+		stateMutability: 'nonpayable',
+	},
+	{
+		type: 'function',
+		inputs: [
+			{ name: 'operator', internalType: 'address', type: 'address' },
+			{ name: 'approved', internalType: 'bool', type: 'bool' },
+		],
+		name: 'setApprovalForAll',
+		outputs: [],
+		stateMutability: 'nonpayable',
+	},
+	{
+		type: 'function',
+		inputs: [{ name: 'interfaceId', internalType: 'bytes4', type: 'bytes4' }],
+		name: 'supportsInterface',
+		outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [],
+		name: 'symbol',
+		outputs: [{ name: '', internalType: 'string', type: 'string' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
+		name: 'tokenURI',
+		outputs: [{ name: '', internalType: 'string', type: 'string' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [
+			{ name: 'from', internalType: 'address', type: 'address' },
+			{ name: 'to', internalType: 'address', type: 'address' },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+		],
+		name: 'transferFrom',
+		outputs: [],
+		stateMutability: 'nonpayable',
+	},
 ] as const
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -654,18 +654,18 @@ export const ierc721MetadataAbi = [
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const ierc721ReceiverAbi = [
-  {
-    type: 'function',
-    inputs: [
-      { name: 'operator', internalType: 'address', type: 'address' },
-      { name: 'from', internalType: 'address', type: 'address' },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
-      { name: 'data', internalType: 'bytes', type: 'bytes' },
-    ],
-    name: 'onERC721Received',
-    outputs: [{ name: '', internalType: 'bytes4', type: 'bytes4' }],
-    stateMutability: 'nonpayable',
-  },
+	{
+		type: 'function',
+		inputs: [
+			{ name: 'operator', internalType: 'address', type: 'address' },
+			{ name: 'from', internalType: 'address', type: 'address' },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+			{ name: 'data', internalType: 'bytes', type: 'bytes' },
+		],
+		name: 'onERC721Received',
+		outputs: [{ name: '', internalType: 'bytes4', type: 'bytes4' }],
+		stateMutability: 'nonpayable',
+	},
 ] as const
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -682,37 +682,37 @@ export const mathAbi = [{ type: 'error', inputs: [], name: 'MathOverflowedMulDiv
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xF11f180eE37dd6aa7dD08b8C1Cd670fC4DBE0e34)
  */
 export const messageAbi = [
-  { type: 'constructor', inputs: [], stateMutability: 'nonpayable' },
-  {
-    type: 'event',
-    anonymous: false,
-    inputs: [
-      { name: 'sender', internalType: 'address', type: 'address', indexed: false },
-      { name: 'purpose', internalType: 'string', type: 'string', indexed: false },
-    ],
-    name: 'SetMessage',
-  },
-  {
-    type: 'function',
-    inputs: [],
-    name: 'message',
-    outputs: [{ name: '', internalType: 'string', type: 'string' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [{ name: '_message', internalType: 'string', type: 'string' }],
-    name: 'setMessage',
-    outputs: [],
-    stateMutability: 'payable',
-  },
+	{ type: 'constructor', inputs: [], stateMutability: 'nonpayable' },
+	{
+		type: 'event',
+		anonymous: false,
+		inputs: [
+			{ name: 'sender', internalType: 'address', type: 'address', indexed: false },
+			{ name: 'purpose', internalType: 'string', type: 'string', indexed: false },
+		],
+		name: 'SetMessage',
+	},
+	{
+		type: 'function',
+		inputs: [],
+		name: 'message',
+		outputs: [{ name: '', internalType: 'string', type: 'string' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [{ name: '_message', internalType: 'string', type: 'string' }],
+		name: 'setMessage',
+		outputs: [],
+		stateMutability: 'payable',
+	},
 ] as const
 
 /**
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xF11f180eE37dd6aa7dD08b8C1Cd670fC4DBE0e34)
  */
 export const messageAddress = {
-  11155111: '0xF11f180eE37dd6aa7dD08b8C1Cd670fC4DBE0e34',
+	11155111: '0xF11f180eE37dd6aa7dD08b8C1Cd670fC4DBE0e34',
 } as const
 
 /**
@@ -725,230 +725,230 @@ export const messageConfig = { address: messageAddress, abi: messageAbi } as con
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const nexthFtAbi = [
-  { type: 'constructor', inputs: [], stateMutability: 'nonpayable' },
-  {
-    type: 'error',
-    inputs: [
-      { name: 'sender', internalType: 'address', type: 'address' },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
-      { name: 'owner', internalType: 'address', type: 'address' },
-    ],
-    name: 'ERC721IncorrectOwner',
-  },
-  {
-    type: 'error',
-    inputs: [
-      { name: 'operator', internalType: 'address', type: 'address' },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
-    ],
-    name: 'ERC721InsufficientApproval',
-  },
-  {
-    type: 'error',
-    inputs: [{ name: 'approver', internalType: 'address', type: 'address' }],
-    name: 'ERC721InvalidApprover',
-  },
-  {
-    type: 'error',
-    inputs: [{ name: 'operator', internalType: 'address', type: 'address' }],
-    name: 'ERC721InvalidOperator',
-  },
-  { type: 'error', inputs: [{ name: 'owner', internalType: 'address', type: 'address' }], name: 'ERC721InvalidOwner' },
-  {
-    type: 'error',
-    inputs: [{ name: 'receiver', internalType: 'address', type: 'address' }],
-    name: 'ERC721InvalidReceiver',
-  },
-  {
-    type: 'error',
-    inputs: [{ name: 'sender', internalType: 'address', type: 'address' }],
-    name: 'ERC721InvalidSender',
-  },
-  {
-    type: 'error',
-    inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
-    name: 'ERC721NonexistentToken',
-  },
-  { type: 'error', inputs: [{ name: 'owner', internalType: 'address', type: 'address' }], name: 'OwnableInvalidOwner' },
-  {
-    type: 'error',
-    inputs: [{ name: 'account', internalType: 'address', type: 'address' }],
-    name: 'OwnableUnauthorizedAccount',
-  },
-  {
-    type: 'event',
-    anonymous: false,
-    inputs: [
-      { name: 'owner', internalType: 'address', type: 'address', indexed: true },
-      { name: 'approved', internalType: 'address', type: 'address', indexed: true },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256', indexed: true },
-    ],
-    name: 'Approval',
-  },
-  {
-    type: 'event',
-    anonymous: false,
-    inputs: [
-      { name: 'owner', internalType: 'address', type: 'address', indexed: true },
-      { name: 'operator', internalType: 'address', type: 'address', indexed: true },
-      { name: 'approved', internalType: 'bool', type: 'bool', indexed: false },
-    ],
-    name: 'ApprovalForAll',
-  },
-  {
-    type: 'event',
-    anonymous: false,
-    inputs: [
-      { name: 'previousOwner', internalType: 'address', type: 'address', indexed: true },
-      { name: 'newOwner', internalType: 'address', type: 'address', indexed: true },
-    ],
-    name: 'OwnershipTransferred',
-  },
-  {
-    type: 'event',
-    anonymous: false,
-    inputs: [
-      { name: 'from', internalType: 'address', type: 'address', indexed: true },
-      { name: 'to', internalType: 'address', type: 'address', indexed: true },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256', indexed: true },
-    ],
-    name: 'Transfer',
-  },
-  {
-    type: 'function',
-    inputs: [
-      { name: 'to', internalType: 'address', type: 'address' },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
-    ],
-    name: 'approve',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
-  {
-    type: 'function',
-    inputs: [{ name: 'owner', internalType: 'address', type: 'address' }],
-    name: 'balanceOf',
-    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
-    name: 'getApproved',
-    outputs: [{ name: '', internalType: 'address', type: 'address' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [
-      { name: 'owner', internalType: 'address', type: 'address' },
-      { name: 'operator', internalType: 'address', type: 'address' },
-    ],
-    name: 'isApprovedForAll',
-    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [],
-    name: 'name',
-    outputs: [{ name: '', internalType: 'string', type: 'string' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [],
-    name: 'owner',
-    outputs: [{ name: '', internalType: 'address', type: 'address' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
-    name: 'ownerOf',
-    outputs: [{ name: '', internalType: 'address', type: 'address' }],
-    stateMutability: 'view',
-  },
-  { type: 'function', inputs: [], name: 'renounceOwnership', outputs: [], stateMutability: 'nonpayable' },
-  {
-    type: 'function',
-    inputs: [{ name: 'to', internalType: 'address', type: 'address' }],
-    name: 'safeMint',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
-  {
-    type: 'function',
-    inputs: [
-      { name: 'from', internalType: 'address', type: 'address' },
-      { name: 'to', internalType: 'address', type: 'address' },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
-    ],
-    name: 'safeTransferFrom',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
-  {
-    type: 'function',
-    inputs: [
-      { name: 'from', internalType: 'address', type: 'address' },
-      { name: 'to', internalType: 'address', type: 'address' },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
-      { name: 'data', internalType: 'bytes', type: 'bytes' },
-    ],
-    name: 'safeTransferFrom',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
-  {
-    type: 'function',
-    inputs: [
-      { name: 'operator', internalType: 'address', type: 'address' },
-      { name: 'approved', internalType: 'bool', type: 'bool' },
-    ],
-    name: 'setApprovalForAll',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
-  {
-    type: 'function',
-    inputs: [{ name: 'interfaceId', internalType: 'bytes4', type: 'bytes4' }],
-    name: 'supportsInterface',
-    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [],
-    name: 'symbol',
-    outputs: [{ name: '', internalType: 'string', type: 'string' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
-    name: 'tokenURI',
-    outputs: [{ name: '', internalType: 'string', type: 'string' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [
-      { name: 'from', internalType: 'address', type: 'address' },
-      { name: 'to', internalType: 'address', type: 'address' },
-      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
-    ],
-    name: 'transferFrom',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
-  {
-    type: 'function',
-    inputs: [{ name: 'newOwner', internalType: 'address', type: 'address' }],
-    name: 'transferOwnership',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
+	{ type: 'constructor', inputs: [], stateMutability: 'nonpayable' },
+	{
+		type: 'error',
+		inputs: [
+			{ name: 'sender', internalType: 'address', type: 'address' },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+			{ name: 'owner', internalType: 'address', type: 'address' },
+		],
+		name: 'ERC721IncorrectOwner',
+	},
+	{
+		type: 'error',
+		inputs: [
+			{ name: 'operator', internalType: 'address', type: 'address' },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+		],
+		name: 'ERC721InsufficientApproval',
+	},
+	{
+		type: 'error',
+		inputs: [{ name: 'approver', internalType: 'address', type: 'address' }],
+		name: 'ERC721InvalidApprover',
+	},
+	{
+		type: 'error',
+		inputs: [{ name: 'operator', internalType: 'address', type: 'address' }],
+		name: 'ERC721InvalidOperator',
+	},
+	{ type: 'error', inputs: [{ name: 'owner', internalType: 'address', type: 'address' }], name: 'ERC721InvalidOwner' },
+	{
+		type: 'error',
+		inputs: [{ name: 'receiver', internalType: 'address', type: 'address' }],
+		name: 'ERC721InvalidReceiver',
+	},
+	{
+		type: 'error',
+		inputs: [{ name: 'sender', internalType: 'address', type: 'address' }],
+		name: 'ERC721InvalidSender',
+	},
+	{
+		type: 'error',
+		inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
+		name: 'ERC721NonexistentToken',
+	},
+	{ type: 'error', inputs: [{ name: 'owner', internalType: 'address', type: 'address' }], name: 'OwnableInvalidOwner' },
+	{
+		type: 'error',
+		inputs: [{ name: 'account', internalType: 'address', type: 'address' }],
+		name: 'OwnableUnauthorizedAccount',
+	},
+	{
+		type: 'event',
+		anonymous: false,
+		inputs: [
+			{ name: 'owner', internalType: 'address', type: 'address', indexed: true },
+			{ name: 'approved', internalType: 'address', type: 'address', indexed: true },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256', indexed: true },
+		],
+		name: 'Approval',
+	},
+	{
+		type: 'event',
+		anonymous: false,
+		inputs: [
+			{ name: 'owner', internalType: 'address', type: 'address', indexed: true },
+			{ name: 'operator', internalType: 'address', type: 'address', indexed: true },
+			{ name: 'approved', internalType: 'bool', type: 'bool', indexed: false },
+		],
+		name: 'ApprovalForAll',
+	},
+	{
+		type: 'event',
+		anonymous: false,
+		inputs: [
+			{ name: 'previousOwner', internalType: 'address', type: 'address', indexed: true },
+			{ name: 'newOwner', internalType: 'address', type: 'address', indexed: true },
+		],
+		name: 'OwnershipTransferred',
+	},
+	{
+		type: 'event',
+		anonymous: false,
+		inputs: [
+			{ name: 'from', internalType: 'address', type: 'address', indexed: true },
+			{ name: 'to', internalType: 'address', type: 'address', indexed: true },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256', indexed: true },
+		],
+		name: 'Transfer',
+	},
+	{
+		type: 'function',
+		inputs: [
+			{ name: 'to', internalType: 'address', type: 'address' },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+		],
+		name: 'approve',
+		outputs: [],
+		stateMutability: 'nonpayable',
+	},
+	{
+		type: 'function',
+		inputs: [{ name: 'owner', internalType: 'address', type: 'address' }],
+		name: 'balanceOf',
+		outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
+		name: 'getApproved',
+		outputs: [{ name: '', internalType: 'address', type: 'address' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [
+			{ name: 'owner', internalType: 'address', type: 'address' },
+			{ name: 'operator', internalType: 'address', type: 'address' },
+		],
+		name: 'isApprovedForAll',
+		outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [],
+		name: 'name',
+		outputs: [{ name: '', internalType: 'string', type: 'string' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [],
+		name: 'owner',
+		outputs: [{ name: '', internalType: 'address', type: 'address' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
+		name: 'ownerOf',
+		outputs: [{ name: '', internalType: 'address', type: 'address' }],
+		stateMutability: 'view',
+	},
+	{ type: 'function', inputs: [], name: 'renounceOwnership', outputs: [], stateMutability: 'nonpayable' },
+	{
+		type: 'function',
+		inputs: [{ name: 'to', internalType: 'address', type: 'address' }],
+		name: 'safeMint',
+		outputs: [],
+		stateMutability: 'nonpayable',
+	},
+	{
+		type: 'function',
+		inputs: [
+			{ name: 'from', internalType: 'address', type: 'address' },
+			{ name: 'to', internalType: 'address', type: 'address' },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+		],
+		name: 'safeTransferFrom',
+		outputs: [],
+		stateMutability: 'nonpayable',
+	},
+	{
+		type: 'function',
+		inputs: [
+			{ name: 'from', internalType: 'address', type: 'address' },
+			{ name: 'to', internalType: 'address', type: 'address' },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+			{ name: 'data', internalType: 'bytes', type: 'bytes' },
+		],
+		name: 'safeTransferFrom',
+		outputs: [],
+		stateMutability: 'nonpayable',
+	},
+	{
+		type: 'function',
+		inputs: [
+			{ name: 'operator', internalType: 'address', type: 'address' },
+			{ name: 'approved', internalType: 'bool', type: 'bool' },
+		],
+		name: 'setApprovalForAll',
+		outputs: [],
+		stateMutability: 'nonpayable',
+	},
+	{
+		type: 'function',
+		inputs: [{ name: 'interfaceId', internalType: 'bytes4', type: 'bytes4' }],
+		name: 'supportsInterface',
+		outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [],
+		name: 'symbol',
+		outputs: [{ name: '', internalType: 'string', type: 'string' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
+		name: 'tokenURI',
+		outputs: [{ name: '', internalType: 'string', type: 'string' }],
+		stateMutability: 'view',
+	},
+	{
+		type: 'function',
+		inputs: [
+			{ name: 'from', internalType: 'address', type: 'address' },
+			{ name: 'to', internalType: 'address', type: 'address' },
+			{ name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+		],
+		name: 'transferFrom',
+		outputs: [],
+		stateMutability: 'nonpayable',
+	},
+	{
+		type: 'function',
+		inputs: [{ name: 'newOwner', internalType: 'address', type: 'address' }],
+		name: 'transferOwnership',
+		outputs: [],
+		stateMutability: 'nonpayable',
+	},
 ] as const
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -956,36 +956,36 @@ export const nexthFtAbi = [
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const ownableAbi = [
-  { type: 'error', inputs: [{ name: 'owner', internalType: 'address', type: 'address' }], name: 'OwnableInvalidOwner' },
-  {
-    type: 'error',
-    inputs: [{ name: 'account', internalType: 'address', type: 'address' }],
-    name: 'OwnableUnauthorizedAccount',
-  },
-  {
-    type: 'event',
-    anonymous: false,
-    inputs: [
-      { name: 'previousOwner', internalType: 'address', type: 'address', indexed: true },
-      { name: 'newOwner', internalType: 'address', type: 'address', indexed: true },
-    ],
-    name: 'OwnershipTransferred',
-  },
-  {
-    type: 'function',
-    inputs: [],
-    name: 'owner',
-    outputs: [{ name: '', internalType: 'address', type: 'address' }],
-    stateMutability: 'view',
-  },
-  { type: 'function', inputs: [], name: 'renounceOwnership', outputs: [], stateMutability: 'nonpayable' },
-  {
-    type: 'function',
-    inputs: [{ name: 'newOwner', internalType: 'address', type: 'address' }],
-    name: 'transferOwnership',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
+	{ type: 'error', inputs: [{ name: 'owner', internalType: 'address', type: 'address' }], name: 'OwnableInvalidOwner' },
+	{
+		type: 'error',
+		inputs: [{ name: 'account', internalType: 'address', type: 'address' }],
+		name: 'OwnableUnauthorizedAccount',
+	},
+	{
+		type: 'event',
+		anonymous: false,
+		inputs: [
+			{ name: 'previousOwner', internalType: 'address', type: 'address', indexed: true },
+			{ name: 'newOwner', internalType: 'address', type: 'address', indexed: true },
+		],
+		name: 'OwnershipTransferred',
+	},
+	{
+		type: 'function',
+		inputs: [],
+		name: 'owner',
+		outputs: [{ name: '', internalType: 'address', type: 'address' }],
+		stateMutability: 'view',
+	},
+	{ type: 'function', inputs: [], name: 'renounceOwnership', outputs: [], stateMutability: 'nonpayable' },
+	{
+		type: 'function',
+		inputs: [{ name: 'newOwner', internalType: 'address', type: 'address' }],
+		name: 'transferOwnership',
+		outputs: [],
+		stateMutability: 'nonpayable',
+	},
 ] as const
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -993,14 +993,14 @@ export const ownableAbi = [
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const stringsAbi = [
-  {
-    type: 'error',
-    inputs: [
-      { name: 'value', internalType: 'uint256', type: 'uint256' },
-      { name: 'length', internalType: 'uint256', type: 'uint256' },
-    ],
-    name: 'StringsInsufficientHexLength',
-  },
+	{
+		type: 'error',
+		inputs: [
+			{ name: 'value', internalType: 'uint256', type: 'uint256' },
+			{ name: 'length', internalType: 'uint256', type: 'uint256' },
+		],
+		name: 'StringsInsufficientHexLength',
+	},
 ] as const
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1016,8 +1016,8 @@ export const readErc165 = /*#__PURE__*/ createReadContract({ abi: erc165Abi })
  * Wraps __{@link readContract}__ with `abi` set to __{@link erc165Abi}__ and `functionName` set to `"supportsInterface"`
  */
 export const readErc165SupportsInterface = /*#__PURE__*/ createReadContract({
-  abi: erc165Abi,
-  functionName: 'supportsInterface',
+	abi: erc165Abi,
+	functionName: 'supportsInterface',
 })
 
 /**
@@ -1039,8 +1039,8 @@ export const readErc721GetApproved = /*#__PURE__*/ createReadContract({ abi: erc
  * Wraps __{@link readContract}__ with `abi` set to __{@link erc721Abi}__ and `functionName` set to `"isApprovedForAll"`
  */
 export const readErc721IsApprovedForAll = /*#__PURE__*/ createReadContract({
-  abi: erc721Abi,
-  functionName: 'isApprovedForAll',
+	abi: erc721Abi,
+	functionName: 'isApprovedForAll',
 })
 
 /**
@@ -1057,8 +1057,8 @@ export const readErc721OwnerOf = /*#__PURE__*/ createReadContract({ abi: erc721A
  * Wraps __{@link readContract}__ with `abi` set to __{@link erc721Abi}__ and `functionName` set to `"supportsInterface"`
  */
 export const readErc721SupportsInterface = /*#__PURE__*/ createReadContract({
-  abi: erc721Abi,
-  functionName: 'supportsInterface',
+	abi: erc721Abi,
+	functionName: 'supportsInterface',
 })
 
 /**
@@ -1085,24 +1085,24 @@ export const writeErc721Approve = /*#__PURE__*/ createWriteContract({ abi: erc72
  * Wraps __{@link writeContract}__ with `abi` set to __{@link erc721Abi}__ and `functionName` set to `"safeTransferFrom"`
  */
 export const writeErc721SafeTransferFrom = /*#__PURE__*/ createWriteContract({
-  abi: erc721Abi,
-  functionName: 'safeTransferFrom',
+	abi: erc721Abi,
+	functionName: 'safeTransferFrom',
 })
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link erc721Abi}__ and `functionName` set to `"setApprovalForAll"`
  */
 export const writeErc721SetApprovalForAll = /*#__PURE__*/ createWriteContract({
-  abi: erc721Abi,
-  functionName: 'setApprovalForAll',
+	abi: erc721Abi,
+	functionName: 'setApprovalForAll',
 })
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link erc721Abi}__ and `functionName` set to `"transferFrom"`
  */
 export const writeErc721TransferFrom = /*#__PURE__*/ createWriteContract({
-  abi: erc721Abi,
-  functionName: 'transferFrom',
+	abi: erc721Abi,
+	functionName: 'transferFrom',
 })
 
 /**
@@ -1119,24 +1119,24 @@ export const simulateErc721Approve = /*#__PURE__*/ createSimulateContract({ abi:
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link erc721Abi}__ and `functionName` set to `"safeTransferFrom"`
  */
 export const simulateErc721SafeTransferFrom = /*#__PURE__*/ createSimulateContract({
-  abi: erc721Abi,
-  functionName: 'safeTransferFrom',
+	abi: erc721Abi,
+	functionName: 'safeTransferFrom',
 })
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link erc721Abi}__ and `functionName` set to `"setApprovalForAll"`
  */
 export const simulateErc721SetApprovalForAll = /*#__PURE__*/ createSimulateContract({
-  abi: erc721Abi,
-  functionName: 'setApprovalForAll',
+	abi: erc721Abi,
+	functionName: 'setApprovalForAll',
 })
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link erc721Abi}__ and `functionName` set to `"transferFrom"`
  */
 export const simulateErc721TransferFrom = /*#__PURE__*/ createSimulateContract({
-  abi: erc721Abi,
-  functionName: 'transferFrom',
+	abi: erc721Abi,
+	functionName: 'transferFrom',
 })
 
 /**
@@ -1148,24 +1148,24 @@ export const watchErc721Event = /*#__PURE__*/ createWatchContractEvent({ abi: er
  * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link erc721Abi}__ and `eventName` set to `"Approval"`
  */
 export const watchErc721ApprovalEvent = /*#__PURE__*/ createWatchContractEvent({
-  abi: erc721Abi,
-  eventName: 'Approval',
+	abi: erc721Abi,
+	eventName: 'Approval',
 })
 
 /**
  * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link erc721Abi}__ and `eventName` set to `"ApprovalForAll"`
  */
 export const watchErc721ApprovalForAllEvent = /*#__PURE__*/ createWatchContractEvent({
-  abi: erc721Abi,
-  eventName: 'ApprovalForAll',
+	abi: erc721Abi,
+	eventName: 'ApprovalForAll',
 })
 
 /**
  * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link erc721Abi}__ and `eventName` set to `"Transfer"`
  */
 export const watchErc721TransferEvent = /*#__PURE__*/ createWatchContractEvent({
-  abi: erc721Abi,
-  eventName: 'Transfer',
+	abi: erc721Abi,
+	eventName: 'Transfer',
 })
 
 /**
@@ -1177,8 +1177,8 @@ export const readIerc165 = /*#__PURE__*/ createReadContract({ abi: ierc165Abi })
  * Wraps __{@link readContract}__ with `abi` set to __{@link ierc165Abi}__ and `functionName` set to `"supportsInterface"`
  */
 export const readIerc165SupportsInterface = /*#__PURE__*/ createReadContract({
-  abi: ierc165Abi,
-  functionName: 'supportsInterface',
+	abi: ierc165Abi,
+	functionName: 'supportsInterface',
 })
 
 /**
@@ -1200,8 +1200,8 @@ export const readIerc721GetApproved = /*#__PURE__*/ createReadContract({ abi: ie
  * Wraps __{@link readContract}__ with `abi` set to __{@link ierc721Abi}__ and `functionName` set to `"isApprovedForAll"`
  */
 export const readIerc721IsApprovedForAll = /*#__PURE__*/ createReadContract({
-  abi: ierc721Abi,
-  functionName: 'isApprovedForAll',
+	abi: ierc721Abi,
+	functionName: 'isApprovedForAll',
 })
 
 /**
@@ -1213,8 +1213,8 @@ export const readIerc721OwnerOf = /*#__PURE__*/ createReadContract({ abi: ierc72
  * Wraps __{@link readContract}__ with `abi` set to __{@link ierc721Abi}__ and `functionName` set to `"supportsInterface"`
  */
 export const readIerc721SupportsInterface = /*#__PURE__*/ createReadContract({
-  abi: ierc721Abi,
-  functionName: 'supportsInterface',
+	abi: ierc721Abi,
+	functionName: 'supportsInterface',
 })
 
 /**
@@ -1231,24 +1231,24 @@ export const writeIerc721Approve = /*#__PURE__*/ createWriteContract({ abi: ierc
  * Wraps __{@link writeContract}__ with `abi` set to __{@link ierc721Abi}__ and `functionName` set to `"safeTransferFrom"`
  */
 export const writeIerc721SafeTransferFrom = /*#__PURE__*/ createWriteContract({
-  abi: ierc721Abi,
-  functionName: 'safeTransferFrom',
+	abi: ierc721Abi,
+	functionName: 'safeTransferFrom',
 })
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link ierc721Abi}__ and `functionName` set to `"setApprovalForAll"`
  */
 export const writeIerc721SetApprovalForAll = /*#__PURE__*/ createWriteContract({
-  abi: ierc721Abi,
-  functionName: 'setApprovalForAll',
+	abi: ierc721Abi,
+	functionName: 'setApprovalForAll',
 })
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link ierc721Abi}__ and `functionName` set to `"transferFrom"`
  */
 export const writeIerc721TransferFrom = /*#__PURE__*/ createWriteContract({
-  abi: ierc721Abi,
-  functionName: 'transferFrom',
+	abi: ierc721Abi,
+	functionName: 'transferFrom',
 })
 
 /**
@@ -1265,24 +1265,24 @@ export const simulateIerc721Approve = /*#__PURE__*/ createSimulateContract({ abi
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link ierc721Abi}__ and `functionName` set to `"safeTransferFrom"`
  */
 export const simulateIerc721SafeTransferFrom = /*#__PURE__*/ createSimulateContract({
-  abi: ierc721Abi,
-  functionName: 'safeTransferFrom',
+	abi: ierc721Abi,
+	functionName: 'safeTransferFrom',
 })
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link ierc721Abi}__ and `functionName` set to `"setApprovalForAll"`
  */
 export const simulateIerc721SetApprovalForAll = /*#__PURE__*/ createSimulateContract({
-  abi: ierc721Abi,
-  functionName: 'setApprovalForAll',
+	abi: ierc721Abi,
+	functionName: 'setApprovalForAll',
 })
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link ierc721Abi}__ and `functionName` set to `"transferFrom"`
  */
 export const simulateIerc721TransferFrom = /*#__PURE__*/ createSimulateContract({
-  abi: ierc721Abi,
-  functionName: 'transferFrom',
+	abi: ierc721Abi,
+	functionName: 'transferFrom',
 })
 
 /**
@@ -1294,24 +1294,24 @@ export const watchIerc721Event = /*#__PURE__*/ createWatchContractEvent({ abi: i
  * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ierc721Abi}__ and `eventName` set to `"Approval"`
  */
 export const watchIerc721ApprovalEvent = /*#__PURE__*/ createWatchContractEvent({
-  abi: ierc721Abi,
-  eventName: 'Approval',
+	abi: ierc721Abi,
+	eventName: 'Approval',
 })
 
 /**
  * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ierc721Abi}__ and `eventName` set to `"ApprovalForAll"`
  */
 export const watchIerc721ApprovalForAllEvent = /*#__PURE__*/ createWatchContractEvent({
-  abi: ierc721Abi,
-  eventName: 'ApprovalForAll',
+	abi: ierc721Abi,
+	eventName: 'ApprovalForAll',
 })
 
 /**
  * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ierc721Abi}__ and `eventName` set to `"Transfer"`
  */
 export const watchIerc721TransferEvent = /*#__PURE__*/ createWatchContractEvent({
-  abi: ierc721Abi,
-  eventName: 'Transfer',
+	abi: ierc721Abi,
+	eventName: 'Transfer',
 })
 
 /**
@@ -1323,64 +1323,64 @@ export const readIerc721Metadata = /*#__PURE__*/ createReadContract({ abi: ierc7
  * Wraps __{@link readContract}__ with `abi` set to __{@link ierc721MetadataAbi}__ and `functionName` set to `"balanceOf"`
  */
 export const readIerc721MetadataBalanceOf = /*#__PURE__*/ createReadContract({
-  abi: ierc721MetadataAbi,
-  functionName: 'balanceOf',
+	abi: ierc721MetadataAbi,
+	functionName: 'balanceOf',
 })
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link ierc721MetadataAbi}__ and `functionName` set to `"getApproved"`
  */
 export const readIerc721MetadataGetApproved = /*#__PURE__*/ createReadContract({
-  abi: ierc721MetadataAbi,
-  functionName: 'getApproved',
+	abi: ierc721MetadataAbi,
+	functionName: 'getApproved',
 })
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link ierc721MetadataAbi}__ and `functionName` set to `"isApprovedForAll"`
  */
 export const readIerc721MetadataIsApprovedForAll = /*#__PURE__*/ createReadContract({
-  abi: ierc721MetadataAbi,
-  functionName: 'isApprovedForAll',
+	abi: ierc721MetadataAbi,
+	functionName: 'isApprovedForAll',
 })
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link ierc721MetadataAbi}__ and `functionName` set to `"name"`
  */
 export const readIerc721MetadataName = /*#__PURE__*/ createReadContract({
-  abi: ierc721MetadataAbi,
-  functionName: 'name',
+	abi: ierc721MetadataAbi,
+	functionName: 'name',
 })
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link ierc721MetadataAbi}__ and `functionName` set to `"ownerOf"`
  */
 export const readIerc721MetadataOwnerOf = /*#__PURE__*/ createReadContract({
-  abi: ierc721MetadataAbi,
-  functionName: 'ownerOf',
+	abi: ierc721MetadataAbi,
+	functionName: 'ownerOf',
 })
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link ierc721MetadataAbi}__ and `functionName` set to `"supportsInterface"`
  */
 export const readIerc721MetadataSupportsInterface = /*#__PURE__*/ createReadContract({
-  abi: ierc721MetadataAbi,
-  functionName: 'supportsInterface',
+	abi: ierc721MetadataAbi,
+	functionName: 'supportsInterface',
 })
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link ierc721MetadataAbi}__ and `functionName` set to `"symbol"`
  */
 export const readIerc721MetadataSymbol = /*#__PURE__*/ createReadContract({
-  abi: ierc721MetadataAbi,
-  functionName: 'symbol',
+	abi: ierc721MetadataAbi,
+	functionName: 'symbol',
 })
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link ierc721MetadataAbi}__ and `functionName` set to `"tokenURI"`
  */
 export const readIerc721MetadataTokenUri = /*#__PURE__*/ createReadContract({
-  abi: ierc721MetadataAbi,
-  functionName: 'tokenURI',
+	abi: ierc721MetadataAbi,
+	functionName: 'tokenURI',
 })
 
 /**
@@ -1392,32 +1392,32 @@ export const writeIerc721Metadata = /*#__PURE__*/ createWriteContract({ abi: ier
  * Wraps __{@link writeContract}__ with `abi` set to __{@link ierc721MetadataAbi}__ and `functionName` set to `"approve"`
  */
 export const writeIerc721MetadataApprove = /*#__PURE__*/ createWriteContract({
-  abi: ierc721MetadataAbi,
-  functionName: 'approve',
+	abi: ierc721MetadataAbi,
+	functionName: 'approve',
 })
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link ierc721MetadataAbi}__ and `functionName` set to `"safeTransferFrom"`
  */
 export const writeIerc721MetadataSafeTransferFrom = /*#__PURE__*/ createWriteContract({
-  abi: ierc721MetadataAbi,
-  functionName: 'safeTransferFrom',
+	abi: ierc721MetadataAbi,
+	functionName: 'safeTransferFrom',
 })
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link ierc721MetadataAbi}__ and `functionName` set to `"setApprovalForAll"`
  */
 export const writeIerc721MetadataSetApprovalForAll = /*#__PURE__*/ createWriteContract({
-  abi: ierc721MetadataAbi,
-  functionName: 'setApprovalForAll',
+	abi: ierc721MetadataAbi,
+	functionName: 'setApprovalForAll',
 })
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link ierc721MetadataAbi}__ and `functionName` set to `"transferFrom"`
  */
 export const writeIerc721MetadataTransferFrom = /*#__PURE__*/ createWriteContract({
-  abi: ierc721MetadataAbi,
-  functionName: 'transferFrom',
+	abi: ierc721MetadataAbi,
+	functionName: 'transferFrom',
 })
 
 /**
@@ -1429,32 +1429,32 @@ export const simulateIerc721Metadata = /*#__PURE__*/ createSimulateContract({ ab
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link ierc721MetadataAbi}__ and `functionName` set to `"approve"`
  */
 export const simulateIerc721MetadataApprove = /*#__PURE__*/ createSimulateContract({
-  abi: ierc721MetadataAbi,
-  functionName: 'approve',
+	abi: ierc721MetadataAbi,
+	functionName: 'approve',
 })
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link ierc721MetadataAbi}__ and `functionName` set to `"safeTransferFrom"`
  */
 export const simulateIerc721MetadataSafeTransferFrom = /*#__PURE__*/ createSimulateContract({
-  abi: ierc721MetadataAbi,
-  functionName: 'safeTransferFrom',
+	abi: ierc721MetadataAbi,
+	functionName: 'safeTransferFrom',
 })
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link ierc721MetadataAbi}__ and `functionName` set to `"setApprovalForAll"`
  */
 export const simulateIerc721MetadataSetApprovalForAll = /*#__PURE__*/ createSimulateContract({
-  abi: ierc721MetadataAbi,
-  functionName: 'setApprovalForAll',
+	abi: ierc721MetadataAbi,
+	functionName: 'setApprovalForAll',
 })
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link ierc721MetadataAbi}__ and `functionName` set to `"transferFrom"`
  */
 export const simulateIerc721MetadataTransferFrom = /*#__PURE__*/ createSimulateContract({
-  abi: ierc721MetadataAbi,
-  functionName: 'transferFrom',
+	abi: ierc721MetadataAbi,
+	functionName: 'transferFrom',
 })
 
 /**
@@ -1466,24 +1466,24 @@ export const watchIerc721MetadataEvent = /*#__PURE__*/ createWatchContractEvent(
  * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ierc721MetadataAbi}__ and `eventName` set to `"Approval"`
  */
 export const watchIerc721MetadataApprovalEvent = /*#__PURE__*/ createWatchContractEvent({
-  abi: ierc721MetadataAbi,
-  eventName: 'Approval',
+	abi: ierc721MetadataAbi,
+	eventName: 'Approval',
 })
 
 /**
  * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ierc721MetadataAbi}__ and `eventName` set to `"ApprovalForAll"`
  */
 export const watchIerc721MetadataApprovalForAllEvent = /*#__PURE__*/ createWatchContractEvent({
-  abi: ierc721MetadataAbi,
-  eventName: 'ApprovalForAll',
+	abi: ierc721MetadataAbi,
+	eventName: 'ApprovalForAll',
 })
 
 /**
  * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ierc721MetadataAbi}__ and `eventName` set to `"Transfer"`
  */
 export const watchIerc721MetadataTransferEvent = /*#__PURE__*/ createWatchContractEvent({
-  abi: ierc721MetadataAbi,
-  eventName: 'Transfer',
+	abi: ierc721MetadataAbi,
+	eventName: 'Transfer',
 })
 
 /**
@@ -1495,8 +1495,8 @@ export const writeIerc721Receiver = /*#__PURE__*/ createWriteContract({ abi: ier
  * Wraps __{@link writeContract}__ with `abi` set to __{@link ierc721ReceiverAbi}__ and `functionName` set to `"onERC721Received"`
  */
 export const writeIerc721ReceiverOnErc721Received = /*#__PURE__*/ createWriteContract({
-  abi: ierc721ReceiverAbi,
-  functionName: 'onERC721Received',
+	abi: ierc721ReceiverAbi,
+	functionName: 'onERC721Received',
 })
 
 /**
@@ -1508,8 +1508,8 @@ export const simulateIerc721Receiver = /*#__PURE__*/ createSimulateContract({ ab
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link ierc721ReceiverAbi}__ and `functionName` set to `"onERC721Received"`
  */
 export const simulateIerc721ReceiverOnErc721Received = /*#__PURE__*/ createSimulateContract({
-  abi: ierc721ReceiverAbi,
-  functionName: 'onERC721Received',
+	abi: ierc721ReceiverAbi,
+	functionName: 'onERC721Received',
 })
 
 /**
@@ -1525,9 +1525,9 @@ export const readMessage = /*#__PURE__*/ createReadContract({ abi: messageAbi, a
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xF11f180eE37dd6aa7dD08b8C1Cd670fC4DBE0e34)
  */
 export const readMessageMessage = /*#__PURE__*/ createReadContract({
-  abi: messageAbi,
-  address: messageAddress,
-  functionName: 'message',
+	abi: messageAbi,
+	address: messageAddress,
+	functionName: 'message',
 })
 
 /**
@@ -1543,9 +1543,9 @@ export const writeMessage = /*#__PURE__*/ createWriteContract({ abi: messageAbi,
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xF11f180eE37dd6aa7dD08b8C1Cd670fC4DBE0e34)
  */
 export const writeMessageSetMessage = /*#__PURE__*/ createWriteContract({
-  abi: messageAbi,
-  address: messageAddress,
-  functionName: 'setMessage',
+	abi: messageAbi,
+	address: messageAddress,
+	functionName: 'setMessage',
 })
 
 /**
@@ -1561,9 +1561,9 @@ export const simulateMessage = /*#__PURE__*/ createSimulateContract({ abi: messa
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xF11f180eE37dd6aa7dD08b8C1Cd670fC4DBE0e34)
  */
 export const simulateMessageSetMessage = /*#__PURE__*/ createSimulateContract({
-  abi: messageAbi,
-  address: messageAddress,
-  functionName: 'setMessage',
+	abi: messageAbi,
+	address: messageAddress,
+	functionName: 'setMessage',
 })
 
 /**
@@ -1579,9 +1579,9 @@ export const watchMessageEvent = /*#__PURE__*/ createWatchContractEvent({ abi: m
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xF11f180eE37dd6aa7dD08b8C1Cd670fC4DBE0e34)
  */
 export const watchMessageSetMessageEvent = /*#__PURE__*/ createWatchContractEvent({
-  abi: messageAbi,
-  address: messageAddress,
-  eventName: 'SetMessage',
+	abi: messageAbi,
+	address: messageAddress,
+	eventName: 'SetMessage',
 })
 
 /**
@@ -1603,8 +1603,8 @@ export const readNexthFtGetApproved = /*#__PURE__*/ createReadContract({ abi: ne
  * Wraps __{@link readContract}__ with `abi` set to __{@link nexthFtAbi}__ and `functionName` set to `"isApprovedForAll"`
  */
 export const readNexthFtIsApprovedForAll = /*#__PURE__*/ createReadContract({
-  abi: nexthFtAbi,
-  functionName: 'isApprovedForAll',
+	abi: nexthFtAbi,
+	functionName: 'isApprovedForAll',
 })
 
 /**
@@ -1626,8 +1626,8 @@ export const readNexthFtOwnerOf = /*#__PURE__*/ createReadContract({ abi: nexthF
  * Wraps __{@link readContract}__ with `abi` set to __{@link nexthFtAbi}__ and `functionName` set to `"supportsInterface"`
  */
 export const readNexthFtSupportsInterface = /*#__PURE__*/ createReadContract({
-  abi: nexthFtAbi,
-  functionName: 'supportsInterface',
+	abi: nexthFtAbi,
+	functionName: 'supportsInterface',
 })
 
 /**
@@ -1654,8 +1654,8 @@ export const writeNexthFtApprove = /*#__PURE__*/ createWriteContract({ abi: next
  * Wraps __{@link writeContract}__ with `abi` set to __{@link nexthFtAbi}__ and `functionName` set to `"renounceOwnership"`
  */
 export const writeNexthFtRenounceOwnership = /*#__PURE__*/ createWriteContract({
-  abi: nexthFtAbi,
-  functionName: 'renounceOwnership',
+	abi: nexthFtAbi,
+	functionName: 'renounceOwnership',
 })
 
 /**
@@ -1667,32 +1667,32 @@ export const writeNexthFtSafeMint = /*#__PURE__*/ createWriteContract({ abi: nex
  * Wraps __{@link writeContract}__ with `abi` set to __{@link nexthFtAbi}__ and `functionName` set to `"safeTransferFrom"`
  */
 export const writeNexthFtSafeTransferFrom = /*#__PURE__*/ createWriteContract({
-  abi: nexthFtAbi,
-  functionName: 'safeTransferFrom',
+	abi: nexthFtAbi,
+	functionName: 'safeTransferFrom',
 })
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link nexthFtAbi}__ and `functionName` set to `"setApprovalForAll"`
  */
 export const writeNexthFtSetApprovalForAll = /*#__PURE__*/ createWriteContract({
-  abi: nexthFtAbi,
-  functionName: 'setApprovalForAll',
+	abi: nexthFtAbi,
+	functionName: 'setApprovalForAll',
 })
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link nexthFtAbi}__ and `functionName` set to `"transferFrom"`
  */
 export const writeNexthFtTransferFrom = /*#__PURE__*/ createWriteContract({
-  abi: nexthFtAbi,
-  functionName: 'transferFrom',
+	abi: nexthFtAbi,
+	functionName: 'transferFrom',
 })
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link nexthFtAbi}__ and `functionName` set to `"transferOwnership"`
  */
 export const writeNexthFtTransferOwnership = /*#__PURE__*/ createWriteContract({
-  abi: nexthFtAbi,
-  functionName: 'transferOwnership',
+	abi: nexthFtAbi,
+	functionName: 'transferOwnership',
 })
 
 /**
@@ -1709,48 +1709,48 @@ export const simulateNexthFtApprove = /*#__PURE__*/ createSimulateContract({ abi
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link nexthFtAbi}__ and `functionName` set to `"renounceOwnership"`
  */
 export const simulateNexthFtRenounceOwnership = /*#__PURE__*/ createSimulateContract({
-  abi: nexthFtAbi,
-  functionName: 'renounceOwnership',
+	abi: nexthFtAbi,
+	functionName: 'renounceOwnership',
 })
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link nexthFtAbi}__ and `functionName` set to `"safeMint"`
  */
 export const simulateNexthFtSafeMint = /*#__PURE__*/ createSimulateContract({
-  abi: nexthFtAbi,
-  functionName: 'safeMint',
+	abi: nexthFtAbi,
+	functionName: 'safeMint',
 })
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link nexthFtAbi}__ and `functionName` set to `"safeTransferFrom"`
  */
 export const simulateNexthFtSafeTransferFrom = /*#__PURE__*/ createSimulateContract({
-  abi: nexthFtAbi,
-  functionName: 'safeTransferFrom',
+	abi: nexthFtAbi,
+	functionName: 'safeTransferFrom',
 })
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link nexthFtAbi}__ and `functionName` set to `"setApprovalForAll"`
  */
 export const simulateNexthFtSetApprovalForAll = /*#__PURE__*/ createSimulateContract({
-  abi: nexthFtAbi,
-  functionName: 'setApprovalForAll',
+	abi: nexthFtAbi,
+	functionName: 'setApprovalForAll',
 })
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link nexthFtAbi}__ and `functionName` set to `"transferFrom"`
  */
 export const simulateNexthFtTransferFrom = /*#__PURE__*/ createSimulateContract({
-  abi: nexthFtAbi,
-  functionName: 'transferFrom',
+	abi: nexthFtAbi,
+	functionName: 'transferFrom',
 })
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link nexthFtAbi}__ and `functionName` set to `"transferOwnership"`
  */
 export const simulateNexthFtTransferOwnership = /*#__PURE__*/ createSimulateContract({
-  abi: nexthFtAbi,
-  functionName: 'transferOwnership',
+	abi: nexthFtAbi,
+	functionName: 'transferOwnership',
 })
 
 /**
@@ -1762,32 +1762,32 @@ export const watchNexthFtEvent = /*#__PURE__*/ createWatchContractEvent({ abi: n
  * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link nexthFtAbi}__ and `eventName` set to `"Approval"`
  */
 export const watchNexthFtApprovalEvent = /*#__PURE__*/ createWatchContractEvent({
-  abi: nexthFtAbi,
-  eventName: 'Approval',
+	abi: nexthFtAbi,
+	eventName: 'Approval',
 })
 
 /**
  * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link nexthFtAbi}__ and `eventName` set to `"ApprovalForAll"`
  */
 export const watchNexthFtApprovalForAllEvent = /*#__PURE__*/ createWatchContractEvent({
-  abi: nexthFtAbi,
-  eventName: 'ApprovalForAll',
+	abi: nexthFtAbi,
+	eventName: 'ApprovalForAll',
 })
 
 /**
  * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link nexthFtAbi}__ and `eventName` set to `"OwnershipTransferred"`
  */
 export const watchNexthFtOwnershipTransferredEvent = /*#__PURE__*/ createWatchContractEvent({
-  abi: nexthFtAbi,
-  eventName: 'OwnershipTransferred',
+	abi: nexthFtAbi,
+	eventName: 'OwnershipTransferred',
 })
 
 /**
  * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link nexthFtAbi}__ and `eventName` set to `"Transfer"`
  */
 export const watchNexthFtTransferEvent = /*#__PURE__*/ createWatchContractEvent({
-  abi: nexthFtAbi,
-  eventName: 'Transfer',
+	abi: nexthFtAbi,
+	eventName: 'Transfer',
 })
 
 /**
@@ -1809,16 +1809,16 @@ export const writeOwnable = /*#__PURE__*/ createWriteContract({ abi: ownableAbi 
  * Wraps __{@link writeContract}__ with `abi` set to __{@link ownableAbi}__ and `functionName` set to `"renounceOwnership"`
  */
 export const writeOwnableRenounceOwnership = /*#__PURE__*/ createWriteContract({
-  abi: ownableAbi,
-  functionName: 'renounceOwnership',
+	abi: ownableAbi,
+	functionName: 'renounceOwnership',
 })
 
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link ownableAbi}__ and `functionName` set to `"transferOwnership"`
  */
 export const writeOwnableTransferOwnership = /*#__PURE__*/ createWriteContract({
-  abi: ownableAbi,
-  functionName: 'transferOwnership',
+	abi: ownableAbi,
+	functionName: 'transferOwnership',
 })
 
 /**
@@ -1830,16 +1830,16 @@ export const simulateOwnable = /*#__PURE__*/ createSimulateContract({ abi: ownab
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link ownableAbi}__ and `functionName` set to `"renounceOwnership"`
  */
 export const simulateOwnableRenounceOwnership = /*#__PURE__*/ createSimulateContract({
-  abi: ownableAbi,
-  functionName: 'renounceOwnership',
+	abi: ownableAbi,
+	functionName: 'renounceOwnership',
 })
 
 /**
  * Wraps __{@link simulateContract}__ with `abi` set to __{@link ownableAbi}__ and `functionName` set to `"transferOwnership"`
  */
 export const simulateOwnableTransferOwnership = /*#__PURE__*/ createSimulateContract({
-  abi: ownableAbi,
-  functionName: 'transferOwnership',
+	abi: ownableAbi,
+	functionName: 'transferOwnership',
 })
 
 /**
@@ -1851,6 +1851,6 @@ export const watchOwnableEvent = /*#__PURE__*/ createWatchContractEvent({ abi: o
  * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ownableAbi}__ and `eventName` set to `"OwnershipTransferred"`
  */
 export const watchOwnableOwnershipTransferredEvent = /*#__PURE__*/ createWatchContractEvent({
-  abi: ownableAbi,
-  eventName: 'OwnershipTransferred',
+	abi: ownableAbi,
+	eventName: 'OwnershipTransferred',
 })

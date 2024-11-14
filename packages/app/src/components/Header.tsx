@@ -6,17 +6,17 @@ import { NotificationsDrawer } from './NotificationsDrawer'
 import { ThemeToggle } from './ThemeToggle'
 
 export function Header() {
-  return (
-    <header className='navbar flex justify-between p-4 pt-0'>
-      <LinkComponent href='/'>
-        <h1 className='text-xl font-bold'>{SITE_EMOJI}</h1>
-      </LinkComponent>
+	return (
+		<header className='navbar flex justify-between p-4 pt-0'>
+			<LinkComponent href='/'>
+				<h1 className='text-xl font-bold'>{SITE_EMOJI}</h1>
+			</LinkComponent>
 
-      <div className='flex gap-2'>
-        <ThemeToggle />
-        <NotificationsDrawer />
-        <Connect />
-      </div>
-    </header>
-  )
+			<div className='flex gap-2'>
+				<ThemeToggle />
+				<NotificationsDrawer />
+				<Connect />
+			</div>
+		</header>
+	)
 }

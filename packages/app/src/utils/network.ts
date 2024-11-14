@@ -1,8 +1,8 @@
-import { CaipNetwork } from '@reown/appkit'
+// import { CaipNetwork } from '@reown/appkit'
 import { mainnet, arbitrum, base, polygon, optimism } from '@reown/appkit/networks'
 import { sepolia } from '@reown/appkit/networks'
 
-let chains = [mainnet, arbitrum, base, polygon, optimism] as CaipNetwork[]
+let chains = [mainnet, arbitrum, base, polygon, optimism]
 
 // Only add sepolia to the list in non-production environments, test networks
 if (process.env.NODE_ENV !== 'production') chains.push(sepolia)

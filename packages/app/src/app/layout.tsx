@@ -46,22 +46,26 @@ export const viewport: Viewport = {
 	themeColor: '#000000',
 }
 
-export default function RootLayout(props: PropsWithChildren) {
-	const cookies = headers().get('cookie')
+export default async function RootLayout(props: PropsWithChildren) {
+	const cookies = await headers().get('cookie')
 
 	return (
 		<html lang='en'>
 			<head>
-				<script
+				{/* <script
 					dangerouslySetInnerHTML={{
 						__html: `
-              try {
-                const theme = localStorage.getItem('theme') || 'dark';
-                document.documentElement.setAttribute('data-theme', theme);
-              } catch (e) {}
+              if (typeof window !== 'undefined') {
+                try {
+                  let theme = 'dark';
+                  const savedTheme = localStorage.getItem('theme');
+                  if (savedTheme) theme = savedTheme;
+                  document.documentElement.setAttribute('data-theme', theme);
+                } catch (e) {}
+              }
             `,
 					}}
-				/>
+				/> */}
 				<link
 					rel='icon'
 					href={`data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>${SITE_EMOJI}</text></svg>`}

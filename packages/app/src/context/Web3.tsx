@@ -8,7 +8,6 @@ import { WALLETCONNECT_ADAPTER, WALLETCONNECT_PROJECT_ID } from '@/utils/web3'
 import { SITE_NAME, SITE_INFO, SITE_URL } from '@/utils/site'
 import { ETH_CHAINS } from '@/utils/network'
 import { mainnet } from '@reown/appkit/networks'
-
 interface Props extends PropsWithChildren {
 	cookies: string | null
 }
@@ -18,11 +17,11 @@ const queryClient = new QueryClient()
 const metadata = {
 	name: SITE_NAME,
 	description: SITE_INFO,
-	url: SITE_URL,
-	icons: ['https://avatars.githubusercontent.com/u/25974464'],
+	url: process.env.NODE_ENV === 'production' ? SITE_URL : 'http://localhost:3000',
+	icons: ['https://assets.reown.com/reown-profile-pic.png'],
 }
 
-createAppKit({
+const appKit = createAppKit({
 	adapters: [WALLETCONNECT_ADAPTER],
 	projectId: WALLETCONNECT_PROJECT_ID,
 	networks: ETH_CHAINS,
@@ -33,6 +32,9 @@ createAppKit({
 		email: true,
 		onramp: true,
 		swaps: true, // enable swaps
+	},
+	onError: (error: any) => {
+		console.warn('AppKit error:', error)
 	},
 })
 

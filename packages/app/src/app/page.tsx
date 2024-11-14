@@ -3,11 +3,11 @@ import { CardList } from '@/components/CardList'
 import { EXAMPLE_ITEMS } from './examples/examples'
 
 export default function Home() {
-  return (
-    <>
-      <div className='mt-4'>
-        <CardList items={EXAMPLE_ITEMS} />
-      </div>
-    </>
-  )
+	return (
+		<>
+			<div className='mt-4'>
+				<CardList items={EXAMPLE_ITEMS} />
+			</div>
+		</>
+	)
 }
