@@ -9,6 +9,12 @@ export const EXAMPLE_ITEMS = [
 		image: EtherIcon.src,
 		url: '/examples/send-ether',
 	},
+	{
+		title: 'DEMO Trading Interface',
+		description: 'This is a demo trading interface.',
+		image: EtherIcon.src,
+		url: '/examples/home',
+	},
 	// {
 	// 	title: 'Send ERC20 Token',
 	// 	description:

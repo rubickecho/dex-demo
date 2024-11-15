@@ -27,6 +27,7 @@ const appKit = createAppKit({
 	networks: ETH_CHAINS,
 	defaultNetwork: mainnet,
 	metadata: metadata,
+	allowUnsupportedChain: true,
 	features: {
 		analytics: true, // Optional - defaults to your Cloud configuration
 		email: true,
